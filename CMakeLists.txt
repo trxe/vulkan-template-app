@@ -25,7 +25,7 @@ add_subdirectory(${GLFW_DIR} binary_dir EXCLUDE_FROM_ALL)
 include_directories(${GLFW_DIR}/include)
 
 # Dear ImGui
-set(IMGUI_DIR third-party/imgui/)
+set(IMGUI_DIR third-party/imgui)
 include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends ..)
 
 # Libraries
@@ -38,7 +38,7 @@ set(LIBRARIES "glfw;Vulkan::Vulkan")
 # Use vulkan headers from glfw:
 include_directories(${GLFW_DIR}/deps)
 
-file(GLOB sources *.cpp)
+file(GLOB sources src/*.cpp)
 
 add_executable(example_glfw_vulkan ${sources} ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp ${IMGUI_DIR}/backends/imgui_impl_vulkan.cpp ${IMGUI_DIR}/imgui.cpp ${IMGUI_DIR}/imgui_draw.cpp ${IMGUI_DIR}/imgui_demo.cpp ${IMGUI_DIR}/imgui_tables.cpp ${IMGUI_DIR}/imgui_widgets.cpp)
 target_link_libraries(example_glfw_vulkan ${LIBRARIES})
